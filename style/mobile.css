@@ -1,0 +1,15 @@
+@media only screen and (max-width: 1000px) and (min-width:500px){
+    .grid-container{
+        grid-template-columns:auto auto;
+    }
+  }
+@media only screen and (max-width: 900px){
+    .wrapper{
+        width:90%;
+    }
+}
+@media only screen and (max-width: 500px){
+    .grid-container{
+        grid-template-columns:auto;
+    }
+  }
