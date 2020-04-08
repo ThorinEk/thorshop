@@ -1,4 +1,7 @@
 $(document).ready(function() {
+    $(".minus").css(
+        "background-color", "#bdbbb9"
+    );
     var quantity = 0;
         $(".plus").click(function(){
             $input = $(this).prev();
@@ -7,6 +10,10 @@ $(document).ready(function() {
             quantity = quantity + 1;
             $input.val(quantity);
             $input.change();
+
+            $(this).parent().find(".minus").css(
+                "background-color", "#e13205"
+            );
         });
         $(".minus").click(function(){
             $input = $(this).next();
@@ -18,8 +25,10 @@ $(document).ready(function() {
                 $input.val(quantity);
                 $input.change();
             }
-            else{
-
+            if (quantity == 0){
+                $(this).css(
+                    "background-color", "#bdbbb9"
+                );
             }
         });
 });

@@ -34,6 +34,7 @@
     <p>Saftig biff, fågel eller fina fisken. Här kan du handla allt för din gryta, gratäng och grillat.</p>
 
     <div class="grid-container">
+
         <div class="grid-item">
             <div class="grid-img-container">
                 <img src="https://i.imgur.com/xasAyKP.png">
@@ -48,40 +49,81 @@
                 <span class="plus">+</span>
             </div>
         </div>
+
         <div class="grid-item">
             <div class="grid-img-container">
                 <img src="https://i.imgur.com/xasAyKP.png">
             </div>
             <h3>Raw Porkchop</h3>
+            <div class="grid-text-container">
+                <p class="price">39</p><p class="unit">kr</p>
+            </div>
             <div class="number">
                 <span class="minus">-</span>
                 <input class="quantity" type="text" value="0"/>
                 <span class="plus">+</span>
             </div>
         </div>
+
         <div class="grid-item">
             <div class="grid-img-container">
                 <img src="https://i.imgur.com/xasAyKP.png">
             </div>
             <h3>Raw Porkchop</h3>
+            <div class="grid-text-container">
+                <p class="price">39</p><p class="unit">kr</p>
+            </div>
             <div class="number">
                 <span class="minus">-</span>
-                <input type="text" value="1"/>
+                <input class="quantity" type="text" value="0"/>
                 <span class="plus">+</span>
             </div>
         </div>
+
         <div class="grid-item">
             <div class="grid-img-container">
                 <img src="https://i.imgur.com/xasAyKP.png">
             </div>
             <h3>Raw Porkchop</h3>
+            <div class="grid-text-container">
+                <p class="price">39</p><p class="unit">kr</p>
+            </div>
             <div class="number">
                 <span class="minus">-</span>
-                <input type="text" value="1"/>
+                <input class="quantity" type="text" value="0"/>
                 <span class="plus">+</span>
             </div>
         </div>
     </div>
+
+<?php
+    $filename = 'database/chark.csv';
+
+    // The nested array to hold all the arrays
+    $the_big_array = []; 
+
+    // Open the file for reading
+    if (($h = fopen("{$filename}", "r")) !== FALSE) 
+    {
+    // Each line in the file is converted into an individual array that we call $data
+    // The items of the array are comma separated
+    while (($data = fgetcsv($h, 1000, ";")) !== FALSE) 
+    {
+        // Each individual array is being pushed into the nested array
+        $the_big_array[] = $data;		
+    }
+
+    // Close the file
+    fclose($h);
+    }
+
+    // Display the code in a readable format
+    echo "<pre>";
+    var_dump($the_big_array);
+    echo $the_big_array[3][2];
+    echo "</pre>";
+    ?>
+
 </div>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <script src="script/script.js"></script>
