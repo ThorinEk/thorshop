@@ -7,8 +7,8 @@
   <meta name="keywords" content="Nordatlas, svensk minecraft, test">
   <meta name="author" content="Thorshop">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!--Reloader - Ta bort innan publicering
-  <meta http-equiv="refresh" content="8">-->
+  <!--Reloader - Ta bort innan publicering-->
+  <meta http-equiv="refresh" content="10">
   <!--CSS Stilmall-->
   <link rel="stylesheet" type="text/css" href='style/style.css'>
   <link rel="stylesheet" type="text/css" href='style/mobile.css'>
@@ -39,9 +39,12 @@
                 <img src="https://i.imgur.com/xasAyKP.png">
             </div>
             <h3>Raw Porkchop</h3>
+            <div class="grid-text-container">
+                <p class="price">39</p><p class="unit">kr</p>
+            </div>
             <div class="number">
                 <span class="minus">-</span>
-                <input type="text" value="1"/>
+                <input class="quantity" type="text" value="0"/>
                 <span class="plus">+</span>
             </div>
         </div>
@@ -52,7 +55,7 @@
             <h3>Raw Porkchop</h3>
             <div class="number">
                 <span class="minus">-</span>
-                <input type="text" value="1"/>
+                <input class="quantity" type="text" value="0"/>
                 <span class="plus">+</span>
             </div>
         </div>

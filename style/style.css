@@ -2,6 +2,7 @@ html, body{
     margin:0;
     padding:0;
     font-family: 'Roboto';
+    color: #353432;
 }
 body{
     background-color:#F9F5F5;
@@ -24,6 +25,7 @@ h1 {
         font-size: 1.3em;
         font-weight: 200;
         margin:10px;
+        text-align:center;
 }
 .MainMenu {
     background-color: white;
@@ -55,7 +57,7 @@ li a{
 li a:hover{
     color: #f088b6;
     cursor:pointer;
-    transition:color 0.1s smooth;
+    transition:color 0.1s ease;
 }
 .sitelogo {
     vertical-align: middle;
@@ -90,6 +92,23 @@ li a:hover{
     max-width:150px;
     max-height:150px;
 }
+.grid-item p:first{
+    margin-left:10px;
+}
+.grid-item p + p{
+    margin-left:2px;
+}
+.grid-item .grid-text-container{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    height:2em;
+    margin-bottom:10px;
+}
+.grid-text-container .price{
+    font-weight: bold;
+    color:black;
+}
 .number span {
     cursor:pointer; 
 }
@@ -97,22 +116,31 @@ li a:hover{
     width:100%;
     display:flex;
     justify-content: center;
-    margin:10px;
+    margin-bottom:20px;
+    height:2em;
+}
+.number input:hover{
+    background-color: #f088b6;
+    transition:background-color 0.1s ease;
 }
 .minus, .plus{
-    width:20px;
-    height:20px;
-    background:#f2f2f2;
-    border-radius:4px;
-    padding:8px 5px 8px 5px;
+    width:32px;
+    height:32px;
+    line-height:32px;
+    background-color:#e13205;
+    border-radius:50%;
     border:1px solid #ddd;
     display: inline-block;
     vertical-align: middle;
     text-align: center;
     user-select: none;
+    color: white;
+}
+.plus, input{
+    margin-left:5px;
 }
 input{
-    height:34px;
+    height:32px;
     width: 40px;
     text-align: center;
     font-size: 26px;
@@ -120,4 +148,12 @@ input{
     border-radius:4px;
     display: inline-block;
     vertical-align: middle;
+}
+.price {
+    font-size: 2em;
+    margin:0;
+}
+.unit{
+    margin:0;
+    vertical-align:middle;
 }
