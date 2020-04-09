@@ -64,6 +64,9 @@
                 <input class="quantity" type="text" value="0"/>
                 <span class="plus">+</span>
             </div>
+            <div class="btn_container">
+                <button class="add_to_cart">Lägg i kundvagnen</button>
+            </div>
         </div>
     <?php } ?>
     </div>

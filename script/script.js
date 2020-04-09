@@ -1,7 +1,4 @@
 $(document).ready(function() {
-    $(".minus").css(
-        "background-color", "#bdbbb9"
-    );
     var quantity = 0;
         $(".plus").click(function(){
             $input = $(this).prev();
@@ -19,16 +16,22 @@ $(document).ready(function() {
             $input = $(this).next();
             quantity = $input.val();
             quantity = parseInt(quantity);
-
             if (quantity > 0){
                 quantity = quantity - 1;
                 $input.val(quantity);
                 $input.change();
             }
-            if (quantity == 0){
-                $(this).css(
-                    "background-color", "#bdbbb9"
-                );
-            }
         });
+
+        $(".quantity").change(function(){
+            minusColor($(this));
+        });
+        
+        function minusColor(item_quantity){
+            if (item_quantity.val() == 0){
+                item_quantity.prev().css(
+                    "background-color", "#bdbbb9"
+                )
+            }
+        };
 });
