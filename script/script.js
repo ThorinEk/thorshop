@@ -22,10 +22,18 @@ $(document).ready(function() {
                 $input.change();
             }
         });
-
         $(".quantity").change(function(){
             minusColor($(this));
         });
+        $(".add_to_cart").click(function(){
+            AddToCart($(this).parent().parent().index()+1);
+        });
+        $(".view-cart").click(function(){
+            openCartWindow();
+        });
+        window.onbeforeunload = function(){
+            return '';
+        }
 });
 
 //Sektion för funktioner
@@ -41,3 +49,9 @@ function minusColor(item_quantity){
         )
     }
 };
+function AddToCart(ID){
+    console.log(ID);
+}
+function openCartWindow(){
+    $(".cart-window").fadeToggle(100);
+}

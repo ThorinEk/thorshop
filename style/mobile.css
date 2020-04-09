@@ -7,9 +7,15 @@
     .wrapper{
         width:90%;
     }
+    .cart-window{
+        width:50%;
+    }
 }
 @media only screen and (max-width: 500px){
     .grid-container{
         grid-template-columns:auto;
+    }
+    .main{
+        margin-top:200px;
     }
   }

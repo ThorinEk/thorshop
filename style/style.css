@@ -13,7 +13,7 @@ body{
     margin:auto;
 }
 .main{
-    margin-top:100px;
+    margin-top:150px;
 }
 h1 {
     margin:0;
@@ -140,10 +140,10 @@ li a:hover{
 .minus{
     background-color:#bdbbb9;
 }
-.plus, input{
+.plus, .quantity{
     margin-left:5px;
 }
-input{
+.quantity{
     border:0;
     outline:0;
     height:32px;
@@ -156,6 +156,7 @@ input{
     vertical-align: middle;
     padding:0;
     box-sizing: border-box;
+    color:#cf2e05;
 }
 .price {
     font-size: 2em;
@@ -186,4 +187,68 @@ input{
 .add_to_cart:hover{
     cursor:pointer;
     background-color: #f088b6;
+}
+.second{
+    top:50px;
+    z-index:-1;
+    height:auto;
+}
+.second .text-container{
+    height:100%;
+    width:50%;
+    float:left;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    color:red;
+}
+.text-container p{
+    font-size:1em;
+    font-weight:400;
+}
+.text-container p i, button i{
+    margin-right:10px;
+}
+.cart-container{
+    float:right;
+    min-height:52px;
+    width:auto;
+    display:flex;
+    align-items: center;
+}
+button.view-cart{
+    background-color:#E13205;
+    border:0;
+    outline:0;
+    height:32px;
+    line-height:32px;
+    padding-left:15px;
+    padding-right:15px;
+    border-radius:1em;
+    font-weight:normal;
+    color:white;
+    font-size:1em;
+    transition:background-color 0.1s ease;
+}
+button.view-cart:hover{
+    background-color:#f088b6;
+    cursor:pointer;
+}
+.cart-window{
+    position:fixed;
+    top:200px;
+    right:12.5%;
+    background-color:white;
+    width:25%;
+    height:70vh;
+    display:none;
+}
+.cart-window-container{
+    margin:10px;
+}
+.cart-summary{
+    width:100%;
+    border-bottom:1px solid #EDEDED;
+    display:flex;
+    justify-content: space-between;
 }
