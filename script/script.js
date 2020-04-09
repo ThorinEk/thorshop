@@ -26,12 +26,18 @@ $(document).ready(function() {
         $(".quantity").change(function(){
             minusColor($(this));
         });
-        
-        function minusColor(item_quantity){
-            if (item_quantity.val() == 0){
-                item_quantity.prev().css(
-                    "background-color", "#bdbbb9"
-                )
-            }
-        };
 });
+
+//Sektion för funktioner
+function minusColor(item_quantity){
+    if (item_quantity.val() == 0){
+        item_quantity.prev().css(
+            "background-color", "#bdbbb9"
+        )
+    }
+    else{
+        item_quantity.prev().css(
+            "background-color", "#e13205"
+        )
+    }
+};
