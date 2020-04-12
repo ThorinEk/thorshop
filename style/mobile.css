@@ -10,6 +10,9 @@
     .cart-window{
         width:50%;
     }
+    .bottom-container{
+        flex-direction:column;
+    }
 }
 @media only screen and (max-width: 500px){
     .grid-container{

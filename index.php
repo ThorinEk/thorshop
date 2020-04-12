@@ -3,7 +3,7 @@
 <title>Thorshop</title>
 <head>
   <meta charset="UTF-8">
-  <meta name="description" content="Thorshop - prisvärda läkemedelsprodukter med hög kvalitet">
+  <meta name="description" content="Thorshop - prisvärda råvaror med hög kvalitet">
   <meta name="keywords" content="Nordatlas, svensk minecraft, test">
   <meta name="author" content="Thorshop">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -51,7 +51,7 @@
     <a class="anchor" id="chark"></a>
     <h1>Chark</h1>
     <p>Saftig biff, fågel eller fina fisken. Här kan du handla allt för din gryta, gratäng och grillat.</p>   
-    <div class="grid-container">
+    <div class="grid-container chark">
     <?php
     $filename = 'database/chark.csv';
     $the_big_array = []; 
@@ -65,7 +65,7 @@
     }
     for ($i = 2; $i < count($the_big_array); $i++){ ?>
         <div class="grid-item">
-            <div class="grid-img-container">
+            <div class="grid-img-container chark">
                 <img src="<?php echo $the_big_array[$i][3]; ?>">
             </div>
             <h3><?php echo $the_big_array[$i][1]; ?></h3>
@@ -90,7 +90,7 @@
     <h1>Frukt</h1>
     <p>Här hittar du alltid färsk frukt att fylla upp fruktkorgen med. Goda äpplen, apelsiner och bananer blir en god fruktsallad eller varför inte en uppfriskande smoothie?</p>
     
-    <div class="grid-container">
+    <div class="grid-container frukt">
     <?php
     $filename = 'database/bageri.csv';
     $the_big_array = []; 
@@ -126,13 +126,14 @@
     <div class="pageBottom">
         <div class="bottom-container">
             <img class="sitelogo" src="./img/ica.jpg">
-            <p><strong>ICA Centrallager</strong><br>Torsvik<br>Logpoint South Sweden</p>
             <p><strong>Information</strong><br><a href="terms">Köpvillkor</a><br><a href="about">Så går det till</a></p>
+            <p><strong>ICA Centrallager</strong><br>Torsvik<br>Logpoint South Sweden</p>
+            <img class="siteLogo" src="./img/nordpost.png">
         </div>
     </div>
 </div>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
 <script src="script/script.js"></script>
 </body>
 </html>
