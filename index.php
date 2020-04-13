@@ -60,17 +60,33 @@
                     </div>
                 </div>
                     <?php
-                    if (isset($_POST['ID'])){
+                    if (isset($_POST['price'])){
                         $ID = $_POST['ID'];
                         $chosen_quantity = $_POST['chosen_quantity'];
                         $section = $_POST['section'];
-                        
-                        $result['ID'] = $ID;
-                        $result['chosen_quantity'] = $chosen_quantity;
-                        $result['section'] = $section;
-                        echo json_encode($result);
+                        $price = $_POST['price'];
+                        var_dump($ID);
+                        echo ("test");
+                        echo "<h2>PHP is Fun!</h2>";
                     }
-                ?>
+                    else{
+                        echo ("test");
+                    }
+                    ?>
+                <div class="cart-product">
+                    <div class="image-title">
+                        <img class="cart-image" src="https://i.imgur.com/SRgAksH.png">
+                        <p class="product-title">Nötkött</p>
+                    </div>
+                    <div class="quantity-price">
+                        <p class="basket-quantity">5</p><p class="quantity-unit">st</p>
+                        <p class="product-price">95</p><p class="price-unit">kr</p>
+                    </div>
+                    <div class="remove-product">
+                        <a class="delete-product"><i class="fa fa-trash tooltip"><span class="tooltiptext">Ta bort vara</span></i></a>
+                    </div>
+                </div>
+                
         </div>
     </div>
 <div class="wrapper main">

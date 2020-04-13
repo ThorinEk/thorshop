@@ -58,6 +58,7 @@ function minusColor(item_quantity){
     }
 };
 function AddToCart(ID, chosen_quantity, section){
+    var price = 10;
     $.ajax({
         url:'./script/cart.php',
         method: "post",
@@ -89,19 +90,20 @@ function AddToCart(ID, chosen_quantity, section){
     
             values.push(col);
         }
-        var price = values[ID-1][2];
+        price = values[ID-1][2];
         console.log("pris:", price);
         console.log("ID:", ID);
         console.log("Kvantitet:", chosen_quantity);
         console.log("Sektion:", section);
-    });
-    $.ajax({
-        url: './index.php',
-        method: 'post',
-        data: {price, ID, chosen_quantity, section}
-    })
-    .done(function(info){
-        
+
+        $.ajax({
+            url: './index.php',
+            method: 'post',
+            data: {price, ID, chosen_quantity, section}
+        })
+        .done(function(info){
+            
+        });
     });
 }
 function openCartWindow(){
