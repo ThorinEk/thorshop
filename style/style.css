@@ -246,7 +246,7 @@ button.view-cart:hover{
     display:none;
 }
 .cart-window-container{
-    margin:10px;
+    padding:10px;
 }
 .cart-summary{
     width:100%;
@@ -279,4 +279,104 @@ a.anchor {
 }
 .bottom-container p a:hover{
     color:#f088b6;
+}
+.cart-product{
+    width:100%;
+    border-bottom: 1px solid #EDEDED;
+    display:flex;
+    flex-direction: row;
+    height:54px;
+}
+.image-title{
+    flex:5;
+}
+.cart-image{
+    height:3em;
+    width:3em;
+    padding:3px;
+    border-right:1px solid #EDEDED;
+    float:left;
+}
+.product-title{
+    float:left;
+    margin:0;
+    margin-left:10px;
+    line-height:27px;
+    font-weight:bold;
+}
+.quantity-price{
+    flex:0.4;
+    display:grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    grid-column-gap: 2px;
+    margin-right:5px;
+}
+.quantity-price p{
+    line-height:27px;
+    margin:0;
+    font-weight:bold;
+}
+.basket-quantity{
+    color: #a02971;
+}
+.quantity-price p.product-price, .quantity-price p.price-unit{
+    font-weight:normal;
+    font-size:0.8em;
+}
+.remove-product{
+    height:54px;
+    flex:1;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    border-left:1px solid #EDEDED;
+}
+.remove-product .delete-product i{
+    font-size:30px;
+}
+.remove-product .delete-product i:hover{
+    cursor:pointer;
+}
+/* Tooltip container */
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+    /* Tooltip text */
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width:80px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    font-family:'Roboto';
+    font-size:10px; 
+    /* Position the tooltip text */
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -40px;
+    /* Fade in tooltip */
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+    /* Tooltip arrow */
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+    /* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
 }

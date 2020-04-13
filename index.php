@@ -45,6 +45,32 @@
             <div class="cart-summary">
                 <h2>Summa</h2><h2 class="cart-total">22</h2>
             </div>
+
+                <div class="cart-product">
+                    <div class="image-title">
+                        <img class="cart-image" src="https://i.imgur.com/SRgAksH.png">
+                        <p class="product-title">Nötkött</p>
+                    </div>
+                    <div class="quantity-price">
+                        <p class="basket-quantity">5</p><p class="quantity-unit">st</p>
+                        <p class="product-price">95</p><p class="price-unit">kr</p>
+                    </div>
+                    <div class="remove-product">
+                        <a class="delete-product"><i class="fa fa-trash tooltip"><span class="tooltiptext">Ta bort vara</span></i></a>
+                    </div>
+                </div>
+                    <?php
+                    if (isset($_POST['ID'])){
+                        $ID = $_POST['ID'];
+                        $chosen_quantity = $_POST['chosen_quantity'];
+                        $section = $_POST['section'];
+                        
+                        $result['ID'] = $ID;
+                        $result['chosen_quantity'] = $chosen_quantity;
+                        $result['section'] = $section;
+                        echo json_encode($result);
+                    }
+                ?>
         </div>
     </div>
 <div class="wrapper main">

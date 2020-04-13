@@ -1,3 +1,4 @@
+//Copyright Gustav Persson 2020
 $(document).ready(function() {
     var quantity = 0;
     var section = "test";
@@ -67,9 +68,6 @@ function AddToCart(ID, chosen_quantity, section){
         ID = result.ID;
         var chosen_quantity = result.chosen_quantity;
         var section = result.section;
-        console.log("ID:", ID);
-        console.log("Kvantitet:", chosen_quantity);
-        console.log("Sektion:", section);
     });
     $.ajax({
         url: './database/' + section + '.csv',
@@ -91,13 +89,25 @@ function AddToCart(ID, chosen_quantity, section){
     
             values.push(col);
         }
-        console.log("Pris:", values[ID-1][2]);
+        var price = values[ID-1][2];
+        console.log("pris:", price);
+        console.log("ID:", ID);
+        console.log("Kvantitet:", chosen_quantity);
+        console.log("Sektion:", section);
+    });
+    $.ajax({
+        url: './index.php',
+        method: 'post',
+        data: {price, ID, chosen_quantity, section}
+    })
+    .done(function(info){
+        
     });
 }
 function openCartWindow(){
     $(".cart-window").fadeToggle(100);
 }
-function getPrice(file){
+/*function getPrice(file){
     var values = [];
     var allaRader = file.split(/\n/);
 
@@ -113,5 +123,6 @@ function getPrice(file){
 
         values.push(col);
     }
-    console.log("Pris:", values[2][2]);
+    var price = values[2][2];
 }
+*/
