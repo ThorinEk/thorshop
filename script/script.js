@@ -1,5 +1,5 @@
 //Copyright Gustav Persson 2020
-$(document).ready(function() {
+$(function() {
     var quantity = 0;
     var section = "test";
         $(".plus").click(function(){
@@ -34,7 +34,10 @@ $(document).ready(function() {
             if ($(this).parent().parent().parent().hasClass("frukt")){
                 section = "frukt";
             }
-            AddToCart($(this).parent().parent().index()+1, $(this).parent().parent().find(".quantity").val(), section);
+            AddToCart(
+                $(this).parent().parent().index()+1, 
+                $(this).parent().parent().find(".quantity").val(), 
+                section);
         });
         $(".view-cart").click(function(){
             openCartWindow();
@@ -42,6 +45,10 @@ $(document).ready(function() {
         window.onbeforeunload = function(){
             return '';
         }
+        $(".remove-product").click(function(){
+            var productToRemove = $(this);
+            RemoveProductFromCart(productToRemove);
+        });
 });
 
 //Sektion för funktioner
@@ -58,18 +65,6 @@ function minusColor(item_quantity){
     }
 };
 function AddToCart(ID, chosen_quantity, section){
-    var price = 10;
-    $.ajax({
-        url:'./script/cart.php',
-        method: "post",
-        data: {ID, chosen_quantity, section}
-    })
-    .done(function(data){
-        var result = JSON.parse(data);
-        ID = result.ID;
-        var chosen_quantity = result.chosen_quantity;
-        var section = result.section;
-    });
     $.ajax({
         url: './database/' + section + '.csv',
         dataType: "text"
@@ -90,41 +85,52 @@ function AddToCart(ID, chosen_quantity, section){
     
             values.push(col);
         }
-        price = values[ID-1][2];
+        ID = ID - 1;
+        var price = values[ID][2];
+        price = price * chosen_quantity;
+        var title = values[ID][1];
+        var image_link = values[ID][3];
+
+        console.log("bildlänk:", image_link)
         console.log("pris:", price);
         console.log("ID:", ID);
         console.log("Kvantitet:", chosen_quantity);
         console.log("Sektion:", section);
 
-        $.ajax({
-            url: './index.php',
-            method: 'post',
-            data: {price, ID, chosen_quantity, section}
-        })
-        .done(function(info){
-            
-        });
+        var cartRow = document.createElement('div');
+        var cartItems = document.getElementsByClassName('cart-window-container')[0];
+        var cartRowContents = `                
+        <div class="cart-product">
+            <div class="image-title">
+                <img class="cart-image" src="${image_link}">
+                <p class="product-title">${title}</p>
+            </div>
+            <div class="quantity-price">
+                <p class="basket-quantity">${chosen_quantity}</p><p class="quantity-unit">st</p>
+                <p class="product-price">${price}</p><p class="price-unit">kr</p>
+            </div>
+            <div class="remove-product">
+                <a class="delete-product"><i class="fa fa-trash tooltip"><span class="tooltiptext">Ta bort vara</span></i></a>
+            </div>
+        </div>`
+        cartRow.innerHTML = cartRowContents;
+        cartItems.append(cartRow);
+
+        UpdateCartTotal();
     });
 }
 function openCartWindow(){
     $(".cart-window").fadeToggle(100);
 }
-/*function getPrice(file){
-    var values = [];
-    var allaRader = file.split(/\n/);
-
-    var csv_rows = Object.keys(allaRader).length;
-    for (let i = 2; i < csv_rows; i++){
-        let row = allaRader[i].split(";");
-
-        let col = [];
-
-        for (let j = 0; j < row.length; j++){
-            col.push(row[j]);
-        }
-
-        values.push(col);
-    }
-    var price = values[2][2];
+function UpdateCartTotal(){
+    var cart_sum = parseInt(0);
+    let cart_products = $(".cart-product");
+    cart_products.each(function(){
+        cart_sum += parseInt($(this).find(".product-price").text());
+    });
+    console.log("summa", cart_sum);
+    $(".cart-total").text(cart_sum);
 }
-*/
+function RemoveProductFromCart(product){
+    console.log("test");
+}

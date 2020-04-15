@@ -242,7 +242,7 @@ button.view-cart:hover{
     right:12.5%;
     background-color:white;
     width:25%;
-    height:70vh;
+    min-height:70vh;
     display:none;
 }
 .cart-window-container{

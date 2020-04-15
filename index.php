@@ -41,52 +41,10 @@
         </div>
     </div>
     <div class="cart-window">
-        <div class="cart-window-container">
+        <div class="cart-window-container" id="cart-window-container">
             <div class="cart-summary">
                 <h2>Summa</h2><h2 class="cart-total">22</h2>
-            </div>
-
-                <div class="cart-product">
-                    <div class="image-title">
-                        <img class="cart-image" src="https://i.imgur.com/SRgAksH.png">
-                        <p class="product-title">Nötkött</p>
-                    </div>
-                    <div class="quantity-price">
-                        <p class="basket-quantity">5</p><p class="quantity-unit">st</p>
-                        <p class="product-price">95</p><p class="price-unit">kr</p>
-                    </div>
-                    <div class="remove-product">
-                        <a class="delete-product"><i class="fa fa-trash tooltip"><span class="tooltiptext">Ta bort vara</span></i></a>
-                    </div>
-                </div>
-                    <?php
-                    if (isset($_POST['price'])){
-                        $ID = $_POST['ID'];
-                        $chosen_quantity = $_POST['chosen_quantity'];
-                        $section = $_POST['section'];
-                        $price = $_POST['price'];
-                        var_dump($ID);
-                        echo ("test");
-                        echo "<h2>PHP is Fun!</h2>";
-                    }
-                    else{
-                        echo ("test");
-                    }
-                    ?>
-                <div class="cart-product">
-                    <div class="image-title">
-                        <img class="cart-image" src="https://i.imgur.com/SRgAksH.png">
-                        <p class="product-title">Nötkött</p>
-                    </div>
-                    <div class="quantity-price">
-                        <p class="basket-quantity">5</p><p class="quantity-unit">st</p>
-                        <p class="product-price">95</p><p class="price-unit">kr</p>
-                    </div>
-                    <div class="remove-product">
-                        <a class="delete-product"><i class="fa fa-trash tooltip"><span class="tooltiptext">Ta bort vara</span></i></a>
-                    </div>
-                </div>
-                
+            </div>    
         </div>
     </div>
 <div class="wrapper main">
@@ -107,10 +65,10 @@
     }
     for ($i = 2; $i < count($the_big_array); $i++){ ?>
         <div class="grid-item">
-            <div class="grid-img-container chark">
-                <img src="<?php echo $the_big_array[$i][3]; ?>">
+            <div class="grid-img-container">
+                <img class="image-link" src="<?php echo $the_big_array[$i][3]; ?>">
             </div>
-            <h3><?php echo $the_big_array[$i][1]; ?></h3>
+            <h3 class="title"><?php echo $the_big_array[$i][1]; ?></h3>
             <div class="grid-text-container">
                 <p class="price"><?php echo $the_big_array[$i][2]; ?></p><p class="unit">kr</p>
             </div>
@@ -147,9 +105,9 @@
     for ($i = 2; $i < count($the_big_array); $i++){ ?>
         <div class="grid-item">
             <div class="grid-img-container">
-                <img src="<?php echo $the_big_array[$i][3]; ?>">
+                <img class="image-link" src="<?php echo $the_big_array[$i][3]; ?>">
             </div>
-            <h3><?php echo $the_big_array[$i][1]; ?></h3>
+            <h3 class="title"><?php echo $the_big_array[$i][1]; ?></h3>
             <div class="grid-text-container">
                 <p class="price"><?php echo $the_big_array[$i][2]; ?></p><p class="unit">kr</p>
             </div>
