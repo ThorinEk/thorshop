@@ -43,8 +43,8 @@
     <div class="cart-window">
         <div class="cart-window-container" id="cart-window-container">
             <div class="cart-summary">
-                <h2>Summa</h2><h2 class="cart-total">22</h2>
-            </div>    
+                <h2>Att betala</h2><h2 class="cart-total">0</h2>
+            </div>
         </div>
     </div>
 <div class="wrapper main">
@@ -54,6 +54,45 @@
     <div class="grid-container chark">
     <?php
     $filename = 'database/chark.csv';
+    $the_big_array = []; 
+    if (($h = fopen("{$filename}", "r")) !== FALSE) 
+    {
+    while (($data = fgetcsv($h, 1000, ";")) !== FALSE) 
+    {
+        $the_big_array[] = $data;		
+    }
+    fclose($h);
+    }
+    for ($i = 2; $i < count($the_big_array); $i++){ ?>
+        <div class="grid-item">
+            <div class="grid-img-container chark">
+                <img class="image-link" src="<?php echo $the_big_array[$i][3]; ?>">
+            </div>
+            <h3 class="title"><?php echo $the_big_array[$i][1]; ?></h3>
+            <div class="grid-text-container">
+                <p class="price"><?php echo $the_big_array[$i][2]; ?></p><p class="unit">kr</p>
+            </div>
+            <div class="number">
+                <span class="minus">-</span>
+                <input class="quantity" type="text" value="0"/>
+                <span class="plus">+</span>
+            </div>
+            <div class="btn_container">
+                <button class="add_to_cart">Lägg i kundvagnen</button>
+            </div>
+        </div>
+    <?php } ?>
+    </div>
+
+    <br><br>
+    <hr>
+    <a class="anchor" id="frukt"></a>
+    <h1>Frukt</h1>
+    <p>Här hittar du alltid färsk frukt att fylla upp fruktkorgen med. Goda äpplen, apelsiner och bananer blir en god fruktsallad eller varför inte en uppfriskande smoothie?</p>
+    
+    <div class="grid-container frukt">
+    <?php
+    $filename = 'database/frukt.csv';
     $the_big_array = []; 
     if (($h = fopen("{$filename}", "r")) !== FALSE) 
     {
@@ -86,11 +125,11 @@
 
     <br><br>
     <hr>
-    <a class="anchor" id="frukt"></a>
-    <h1>Frukt</h1>
-    <p>Här hittar du alltid färsk frukt att fylla upp fruktkorgen med. Goda äpplen, apelsiner och bananer blir en god fruktsallad eller varför inte en uppfriskande smoothie?</p>
+    <a class="anchor" id="bageri"></a>
+    <h1>Bageri</h1>
+    <p>Färskt bröd i alla dess former. Vetebullar, limpor, rågbröd, knäckebröd och surdegar. Något sött till kaffet kanske?</p>
     
-    <div class="grid-container frukt">
+    <div class="grid-container bageri">
     <?php
     $filename = 'database/bageri.csv';
     $the_big_array = []; 
@@ -122,6 +161,16 @@
         </div>
     <?php } ?>
     </div>
+
+        <?php
+        $to = "mailtogustav7@gmail.com";
+        $subject = "Testmejl";
+        $txt = "Hallå där";
+        $headers = "Från: Thorshop" . "\r\n" .
+        "CC: somebodyelse@example.com";
+
+        mail($to,$subject,$txt,$headers);
+        ?>
 
     <div class="pageBottom">
         <div class="bottom-container">

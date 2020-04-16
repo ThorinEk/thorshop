@@ -1,5 +1,5 @@
 //Copyright Gustav Persson 2020
-$(function() {
+$(document).ready(function() {
     var quantity = 0;
     var section = "test";
         $(".plus").click(function(){
@@ -34,6 +34,9 @@ $(function() {
             if ($(this).parent().parent().parent().hasClass("frukt")){
                 section = "frukt";
             }
+            if ($(this).parent().parent().parent().hasClass("bageri")){
+                section = "bageri";
+            }
             AddToCart(
                 $(this).parent().parent().index()+1, 
                 $(this).parent().parent().find(".quantity").val(), 
@@ -45,12 +48,7 @@ $(function() {
         window.onbeforeunload = function(){
             return '';
         }
-        $(".remove-product").click(function(){
-            var productToRemove = $(this);
-            RemoveProductFromCart(productToRemove);
-        });
 });
-
 //Sektion för funktioner
 function minusColor(item_quantity){
     if (item_quantity.val() == 0){
@@ -88,35 +86,42 @@ function AddToCart(ID, chosen_quantity, section){
         ID = ID - 1;
         var price = values[ID][2];
         price = price * chosen_quantity;
-        var title = values[ID][1];
-        var image_link = values[ID][3];
 
-        console.log("bildlänk:", image_link)
-        console.log("pris:", price);
-        console.log("ID:", ID);
-        console.log("Kvantitet:", chosen_quantity);
-        console.log("Sektion:", section);
+        if (price > 0){
+            var title = values[ID][1];
+            var image_link = values[ID][3];
 
-        var cartRow = document.createElement('div');
-        var cartItems = document.getElementsByClassName('cart-window-container')[0];
-        var cartRowContents = `                
-        <div class="cart-product">
-            <div class="image-title">
-                <img class="cart-image" src="${image_link}">
-                <p class="product-title">${title}</p>
-            </div>
-            <div class="quantity-price">
-                <p class="basket-quantity">${chosen_quantity}</p><p class="quantity-unit">st</p>
-                <p class="product-price">${price}</p><p class="price-unit">kr</p>
-            </div>
-            <div class="remove-product">
-                <a class="delete-product"><i class="fa fa-trash tooltip"><span class="tooltiptext">Ta bort vara</span></i></a>
-            </div>
-        </div>`
-        cartRow.innerHTML = cartRowContents;
-        cartItems.append(cartRow);
+            console.log("bildlänk:", image_link)
+            console.log("pris:", price);
+            console.log("ID:", ID);
+            console.log("Kvantitet:", chosen_quantity);
+            console.log("Sektion:", section);
 
-        UpdateCartTotal();
+            var cartRow = document.createElement('div');
+            var cartItems = document.getElementsByClassName('cart-window-container')[0];
+            var cartRowContents = `                
+            <div class="cart-product">
+                <div class="image-title">
+                    <img class="cart-image" src="${image_link}">
+                    <p class="product-title">${title}</p>
+                </div>
+                <div class="quantity-price">
+                    <p class="basket-quantity">${chosen_quantity}</p><p class="quantity-unit">st</p>
+                    <p class="product-price">${price}</p><p class="price-unit">kr</p>
+                </div>
+                <div class="remove-product">
+                    <a class="delete-product"><i class="fa fa-trash tooltip"><span class="tooltiptext">Ta bort vara</span></i></a>
+                </div>
+            </div>`
+            cartRow.innerHTML = cartRowContents;
+            cartItems.append(cartRow);
+            UpdateCartTotal();
+        }
+
+        $(".delete-product").click(function(){
+            $(this).parent().parent().remove();
+            UpdateCartTotal();
+        });
     });
 }
 function openCartWindow(){
@@ -132,5 +137,5 @@ function UpdateCartTotal(){
     $(".cart-total").text(cart_sum);
 }
 function RemoveProductFromCart(product){
-    console.log("test");
+    console.log("ta bort");
 }

@@ -242,17 +242,17 @@ button.view-cart:hover{
     right:12.5%;
     background-color:white;
     width:25%;
-    min-height:70vh;
+    height:70vh;
     display:none;
-}
-.cart-window-container{
-    padding:10px;
+    border:1px solid #EDEDED;
+    overflow-y:scroll;
+    padding-right : 15px
 }
 .cart-summary{
-    width:100%;
     border-bottom:1px solid #EDEDED;
     display:flex;
     justify-content: space-between;
+    padding:10px;
 }
 a.anchor {
     display: block;
