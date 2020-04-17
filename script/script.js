@@ -44,6 +44,8 @@ $(document).ready(function() {
         });
         $(".view-cart").click(function(){
             openCartWindow();
+            $(this).find("i").toggleClass("fa-times");
+            $(this).find("i").toggleClass("fa-shopping-cart");
         });
         window.onbeforeunload = function(){
             return '';

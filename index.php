@@ -46,6 +46,16 @@
                 <h2>Att betala</h2><h2 class="cart-total">0</h2>
             </div>
         </div>
+        <div class="cart-footer">
+            <form>
+                <h3>Beställ varor i kundvagnen</h3>
+                <label for="email">Din e-post</label>
+                <input type="email" class="form-control" placeholder="Ange din mejladress" id="email" required>
+                <label for="mcName">Ditt Minecraftnamn</label>
+                <input type="password" class="form-control" placeholder="Ditt exakta namn i Minecraft" id="mcName" required>
+                <button type="submit" class="send-order">Bekräfta köp</button>
+            </form>
+        </div>
     </div>
 <div class="wrapper main">
     <a class="anchor" id="chark"></a>
