@@ -242,7 +242,7 @@ button.view-cart:hover{
     right:12.5%;
     background-color:white;
     width:25%;
-    min-height:300px;
+    height:60vh;
     display:none;
     border:1px solid #EDEDED;
     overflow-y:scroll;
@@ -262,8 +262,6 @@ a.anchor {
 }
 .pageBottom{
     min-height:120px;
-    margin-top:50px;
-    width:100%;
     background-color:white;
 }
 .bottom-container{
@@ -395,15 +393,19 @@ a.anchor {
     justify-content: space-around;
     width:100%;
     margin:0;
+    display:none;
+    bottom:25px;
 }
 form input{
     border: 1px solid #ddd;
     border-radius: 0;
     box-shadow: inset 0 1px 0 0 rgba(0,0,0,.2);
     line-height:20px;
-    padding:10px;
+    height:40px;
     margin-top:5px;
     margin-bottom:10px;
+    width:100%;
+    text-indent:10px;
 }
 .send-order{
     background-color:rgb(160,41,113);
@@ -419,4 +421,11 @@ form input{
 }
 .fa-times{
     width:14.86px;
+}
+.confirmation-box{
+    width:100%;
+    background-color:white;
+    color:black;
+    padding:10px;
+    box-sizing: border-box;
 }

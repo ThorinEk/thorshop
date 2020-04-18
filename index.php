@@ -47,12 +47,15 @@
             </div>
         </div>
         <div class="cart-footer">
-            <form>
+            <form method="post" action="./tack-for-din-bestallning.php">
                 <h3>Beställ varor i kundvagnen</h3>
-                <label for="email">Din e-post</label>
-                <input type="email" class="form-control" placeholder="Ange din mejladress" id="email" required>
                 <label for="mcName">Ditt Minecraftnamn</label>
-                <input type="password" class="form-control" placeholder="Ditt exakta namn i Minecraft" id="mcName" required>
+                <br>
+                <input type="text" class="form-control" placeholder="Ditt exakta namn i Minecraft" id="mcName" name="mcName" required>
+                <br>
+                <label for="city">Din stad på Nordatlas</label>
+                <br>
+                <input type="text" class="form-control" placeholder="Ange staden du bor i" id="city" name="city" required>
                 <button type="submit" class="send-order">Bekräfta köp</button>
             </form>
         </div>
@@ -171,16 +174,6 @@
         </div>
     <?php } ?>
     </div>
-
-        <?php
-        $to = "mailtogustav7@gmail.com";
-        $subject = "Testmejl";
-        $txt = "Hallå där";
-        $headers = "Från: Thorshop" . "\r\n" .
-        "CC: somebodyelse@example.com";
-
-        mail($to,$subject,$txt,$headers);
-        ?>
 
     <div class="pageBottom">
         <div class="bottom-container">
