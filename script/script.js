@@ -1,6 +1,5 @@
 //Copyright Gustav Persson 2020
 $(document).ready(function() {
-    var itemsInBasket = false;
     var quantity = 0;
     var section = "test";
         $(".plus").click(function(){
@@ -55,9 +54,9 @@ $(document).ready(function() {
             $(this).find("i").toggleClass("fa-times");
             $(this).find("i").toggleClass("fa-shopping-cart");
         });
-        $(".cart-footer form").bind('ajax:complete', function() {
-            
-      });
+        $(".cart-footer form").submit(function(event) {
+            console.log(".cart-window-container").children().count();
+        });
 });
 //Sektion för funktioner
 function minusColor(item_quantity){

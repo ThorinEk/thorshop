@@ -35,6 +35,23 @@
     if (isset($_POST)) {
         $name = $_POST["mcName"];
         $city = $_POST["city"];
+
+        $to = "aditro@nordatlas.se";
+        $subject = "Ny order";
+        $txt = '
+        <html>
+        <body>
+        <img class="cart-image" src="https://i.imgur.com/vVg5a3d.png"/>
+        <p>Fläskkött</p>
+        <p>Pris: 38kr</p>
+        </body>
+        </html>
+        ';
+        $headers = "From: order@nordatlas.eu" . "\r\n";
+        $headers = "MIME-Version: 1.0" . "\r\n";
+        $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+
+        mail($to,$subject,$txt,$headers);
     }
     ?>
 
