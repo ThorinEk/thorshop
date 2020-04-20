@@ -33,10 +33,10 @@
 
     <?php
     if (isset($_POST)) {
-        //$shopping_list = $_POST["shopping_list"];
-
-        $shopping_list = "0,Nybakat bröd,76,4,https://i.imgur.com/PFRHyA9.png ,1,Tårta,156,4,https://i.imgur.com/wQgaVaC.png ,2,Pumpapaj,87,3,https://i.imgur.com/poQu9Iu.png";
-        $item_rows = explode(" ,", $shopping_list);
+        $shopping_list = $_POST["shopping_list"];
+        echo '<p>' . var_dump($_POST) . '</p>';
+        //$shopping_list = "0,Torsk,36,3,https://i.imgur.com/TVwd2Qi.png, 1,Söta bär,76,4,https://i.imgur.com/lz3mEcb.png, 2,Morot,96,4,https://i.imgur.com/UA4kV37.png,";
+        $item_rows = explode(", ", $shopping_list);
         for ($i = 0; $i < count($item_rows); $i++){
             $values = explode(",", $item_rows[$i]);
             $ID[$i] = $values[0];
@@ -65,9 +65,7 @@
         <h3>Stad: ' . $city . '</h3>
         <table style="border-collapse:collapse; font-family:Verdana, Arial; font-size:1.3em;">
         <thead style="border:1px solid black;"><th style="border:1px solid black; padding:20px;">ID</th><th style="border:1px solid black; padding:20px;">Namn</th><th style="border:1px solid black; padding:20px;">Pris</th><th style="border:1px solid black; padding:20px;">Kvantitet</th><th style="border:1px solid black; padding:20px;">Bildlänk</th></thead>
-        <tbody>
         ' . $table . '
-        </tbody>
         </table>
         </body>
         </html>
@@ -110,6 +108,6 @@
     </div>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
-<script src="script/script.js"></script>
+<!--<script src="script/script.js"></script>-->
 </body>
 </html>

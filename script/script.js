@@ -61,9 +61,24 @@ $(document).ready(function() {
         $(".cart-footer form").submit(function(event) {
             event.preventDefault();
 
-            for (let item of order_list){
-                
+            function printArr(order_list){
+            let string_list = "";
+            let url = "http";
+                for (let item of order_list){
+                    //if (Array.isArray(item)) string_list += printArr(item);
+                    if (String(item).includes(url)){
+                        string_list += item + ", ";
+                    }
+                    else{
+                        //string_list += printArr(item);
+                        string_list += item + ",";
+                    }
+                }
+            return string_list;
             }
+            order_list = printArr(order_list);
+            order_list = order_list.substring(0,order_list.length-2);
+            console.log("order-list:", order_list);
 
             $.ajax({
             type: 'post',
