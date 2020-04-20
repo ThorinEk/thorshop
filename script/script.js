@@ -1,3 +1,5 @@
+var order_list = [];
+var list_number = 0;
 //Copyright Gustav Persson 2020
 $(document).ready(function() {
     var quantity = 0;
@@ -40,7 +42,9 @@ $(document).ready(function() {
             AddToCart(
                 $(this).parent().parent().index()+1, 
                 $(this).parent().parent().find(".quantity").val(), 
-                section);
+                section,
+                order_list, 
+                list_number);
 
             $(".add_to_cart").one("click", function(){
                 $(".cart-footer form").css(
@@ -55,7 +59,24 @@ $(document).ready(function() {
             $(this).find("i").toggleClass("fa-shopping-cart");
         });
         $(".cart-footer form").submit(function(event) {
-            console.log(".cart-window-container").children().count();
+            event.preventDefault();
+
+            for (let item of order_list){
+                
+            }
+
+            $.ajax({
+            type: 'post',
+            url: './tack-for-din-bestallning.php',
+            data: $('.cart-footer form').serialize() +  '&shopping_list=' + order_list,
+            success: function () {
+              alert('form was submitted');
+            }
+            })
+        });
+        $(".show-purchases").click(function(){
+            console.log(order_list);
+            $(".purchase-list").text("test");
         });
 });
 //Sektion för funktioner
@@ -71,7 +92,7 @@ function minusColor(item_quantity){
         )
     }
 };
-function AddToCart(ID, chosen_quantity, section){
+function AddToCart(ID, chosen_quantity, section, order_list, list_number){
     $.ajax({
         url: './database/' + section + '.csv',
         dataType: "text"
@@ -125,11 +146,20 @@ function AddToCart(ID, chosen_quantity, section){
             cartRow.innerHTML = cartRowContents;
             cartItems.append(cartRow);
             UpdateCartTotal();
-        }
 
+            order_list[list_number] = [list_number,title,price,chosen_quantity,image_link];
+
+            console.log(order_list);
+
+            IncreaseNumber();
+            console.log("list_number:", list_number);
+        }
         $(".delete-product").click(function(){
             $(this).parent().parent().remove();
             UpdateCartTotal();
+            DecreaseNumber();
+
+            console.log($(this).index($(this)));
         });
     });
 }
@@ -145,6 +175,12 @@ function UpdateCartTotal(){
     console.log("summa", cart_sum);
     $(".cart-total").text(cart_sum);
 }
-function RemoveProductFromCart(product){
+function RemoveProductFromCart(){
     console.log("ta bort");
+}
+function IncreaseNumber(){
+    list_number = parseInt(list_number) + 1;
+}
+function DecreaseNumber(){
+    list_number = parseInt(list_number) - 1;
 }

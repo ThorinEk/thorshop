@@ -33,17 +33,42 @@
 
     <?php
     if (isset($_POST)) {
+        //$shopping_list = $_POST["shopping_list"];
+
+        $shopping_list = "0,Nybakat bröd,76,4,https://i.imgur.com/PFRHyA9.png ,1,Tårta,156,4,https://i.imgur.com/wQgaVaC.png ,2,Pumpapaj,87,3,https://i.imgur.com/poQu9Iu.png";
+        $item_rows = explode(" ,", $shopping_list);
+        for ($i = 0; $i < count($item_rows); $i++){
+            $values = explode(",", $item_rows[$i]);
+            $ID[$i] = $values[0];
+            $Product_Name[$i] = $values[1];
+            $Price[$i] = $values[2];
+            $Quantity[$i] = $values[3];
+            $Image_link[$i] = $values[4];
+        }
+        for ($x = 0; $x < count($Product_Name); $x++){
+            echo '<p>' . $Product_Name[$x] . '</p>';
+        }
+        $table = " ";
+        for ($i = 0; $i < count($item_rows); $i++){
+            $table .= '<tr style="border:1px solid black;"><td style="border:1px solid black; padding:10px">' . $ID[$i] . '</td><td style="border:1px solid black; padding:10px">' . $Product_Name[$i] . '</td><td style="border:1px solid black; padding:10px">' . $Price[$i] . '</td><td style="border:1px solid black; padding:10px">' . $Quantity[$i] . '</td><td style="text-align:center; padding:10px"><img src="' . $Image_link[$i] . '" style="width:50px; height:50px;"></td></tr>';
+        }
+        
         $name = $_POST["mcName"];
         $city = $_POST["city"];
-
         $to = "aditro@nordatlas.se";
         $subject = "Ny order";
         $txt = '
         <html>
         <body>
-        <img class="cart-image" src="https://i.imgur.com/vVg5a3d.png"/>
-        <p>Fläskkött</p>
-        <p>Pris: 38kr</p>
+        <h1>Plocksedel ICA</h1>
+        <h3>Beställare: ' . $name . '</h3>
+        <h3>Stad: ' . $city . '</h3>
+        <table style="border-collapse:collapse; font-family:Verdana, Arial; font-size:1.3em;">
+        <thead style="border:1px solid black;"><th style="border:1px solid black; padding:20px;">ID</th><th style="border:1px solid black; padding:20px;">Namn</th><th style="border:1px solid black; padding:20px;">Pris</th><th style="border:1px solid black; padding:20px;">Kvantitet</th><th style="border:1px solid black; padding:20px;">Bildlänk</th></thead>
+        <tbody>
+        ' . $table . '
+        </tbody>
+        </table>
         </body>
         </html>
         ';
@@ -62,6 +87,16 @@
             echo "<h1>Tack för din beställning " . $name . "!</h1>";
             echo "<p>Våra medarbetare plockar just nu din beställning. Vi kommer att leverera den till <strong>" . $city . "</strong> med Nordpost. Vanligtvis sker leverans inom några timmar.</p>";
             ?>
+            <button class="show-purchases">Visa orderlista</button>
+            <br>
+            <table style="font-family:Verdana">
+                <thead><th>ID</th><th>Namn</th><th>Pris</th><th>Kvantitet</th><th>Bildlänk</th></thead>
+            <?php
+            for ($i = 0; $i < count($item_rows); $i++){
+                echo '<tr> <td>' . $ID[$i] . '</td><td>' . $Product_Name[$i] . '</td><td>' . $Price[$i] . '</td><td>' . $Quantity[$i] . '</td><td style="text-align:center;"><img src="' . $Image_link[$i] . '" style="width:50px; height:50px;"></td></tr>';
+            }
+            ?>
+            </table>
         </div>
 
         <div class="pageBottom">

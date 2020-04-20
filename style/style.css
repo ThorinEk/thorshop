@@ -263,6 +263,7 @@ a.anchor {
 .pageBottom{
     min-height:120px;
     background-color:white;
+    margin-top:50px;
 }
 .bottom-container{
     padding:15px;
@@ -317,6 +318,7 @@ a.anchor {
 }
 .basket-quantity{
     color: #a02971;
+    text-align:right;
 }
 .quantity-price p.product-price, .quantity-price p.price-unit{
     font-weight:normal;

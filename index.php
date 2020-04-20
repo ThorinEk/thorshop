@@ -10,6 +10,7 @@
   <!--Reloader - Ta bort innan publicering-->
   <!--<meta http-equiv="refresh" content="10">-->
   <!--CSS Stilmall-->
+  <link rel="icon" type="image/png" href="./img/favicon.png">
   <link rel="stylesheet" type="text/css" href='style/style.css'>
   <link rel="stylesheet" type="text/css" href='style/mobile.css'>
   <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900italic,900' rel='stylesheet' type='text/css'>
