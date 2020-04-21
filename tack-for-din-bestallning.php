@@ -34,7 +34,7 @@
     <?php
     if (isset($_POST)) {
         $shopping_list = $_POST["shopping_list"];
-        echo '<p>' . var_dump($_POST) . '</p>';
+        $sum = 0;
         //$shopping_list = "0,Torsk,36,3,https://i.imgur.com/TVwd2Qi.png, 1,Söta bär,76,4,https://i.imgur.com/lz3mEcb.png, 2,Morot,96,4,https://i.imgur.com/UA4kV37.png,";
         $item_rows = explode(", ", $shopping_list);
         for ($i = 0; $i < count($item_rows); $i++){
@@ -45,28 +45,29 @@
             $Quantity[$i] = $values[3];
             $Image_link[$i] = $values[4];
         }
-        for ($x = 0; $x < count($Product_Name); $x++){
-            echo '<p>' . $Product_Name[$x] . '</p>';
+        for ($x = 0; $x < count($Price); $x++){
+            $sum += $Price[$x];
         }
         $table = " ";
         for ($i = 0; $i < count($item_rows); $i++){
             $table .= '<tr style="border:1px solid black;"><td style="border:1px solid black; padding:10px">' . $ID[$i] . '</td><td style="border:1px solid black; padding:10px">' . $Product_Name[$i] . '</td><td style="border:1px solid black; padding:10px">' . $Price[$i] . '</td><td style="border:1px solid black; padding:10px">' . $Quantity[$i] . '</td><td style="text-align:center; padding:10px"><img src="' . $Image_link[$i] . '" style="width:50px; height:50px;"></td></tr>';
         }
-        
         $name = $_POST["mcName"];
         $city = $_POST["city"];
         $to = "aditro@nordatlas.se";
-        $subject = "Ny order";
+        $subject = 'Ny order från ' . $name;
         $txt = '
         <html>
         <body>
         <h1>Plocksedel ICA</h1>
         <h3>Beställare: ' . $name . '</h3>
         <h3>Stad: ' . $city . '</h3>
+        <h3>Att debitera kunden: ' . $sum . ' SEK</h3> 
         <table style="border-collapse:collapse; font-family:Verdana, Arial; font-size:1.3em;">
         <thead style="border:1px solid black;"><th style="border:1px solid black; padding:20px;">ID</th><th style="border:1px solid black; padding:20px;">Namn</th><th style="border:1px solid black; padding:20px;">Pris</th><th style="border:1px solid black; padding:20px;">Kvantitet</th><th style="border:1px solid black; padding:20px;">Bildlänk</th></thead>
         ' . $table . '
         </table>
+        <h3>Kommando: /fe deduct ' . $name . ' ' . $sum . '</h3>
         </body>
         </html>
         ';
@@ -93,6 +94,7 @@
             for ($i = 0; $i < count($item_rows); $i++){
                 echo '<tr> <td>' . $ID[$i] . '</td><td>' . $Product_Name[$i] . '</td><td>' . $Price[$i] . '</td><td>' . $Quantity[$i] . '</td><td style="text-align:center;"><img src="' . $Image_link[$i] . '" style="width:50px; height:50px;"></td></tr>';
             }
+            echo '<p>' . $sum . '</p>';
             ?>
             </table>
         </div>

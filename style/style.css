@@ -88,6 +88,7 @@ li a:hover{
     height:150px;
     display:flex;
     justify-content:center;
+    margin-top:5px;
 }
 .grid-img-container img{
     max-width:150px;
@@ -208,7 +209,7 @@ li a:hover{
     font-size:1em;
     font-weight:400;
 }
-.text-container p i, button i{
+.text-container p i, button i, .purchase-confirmation h1 i{
     margin-right:10px;
 }
 .cart-container{
@@ -430,4 +431,10 @@ form input{
     color:black;
     padding:10px;
     box-sizing: border-box;
+}
+.purchase-confirmation h1 i{
+    color:green;
+}
+.purchase-confirmation{
+    display:none;
 }

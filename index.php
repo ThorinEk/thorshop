@@ -28,6 +28,7 @@
                 <li><a href="#chark">Chark</a></li>
                 <li><a href="#frukt">Frukt</a></li>
                 <li><a href="#bageri">Bageri</a></li>
+                <li><a href="#redstone">Rödsten</a></li>
             </ul>
         </div>
     </div>
@@ -48,6 +49,12 @@
             </div>
         </div>
         <div class="cart-footer">
+
+            <div class="purchase-confirmation">
+                <h1><i class="fa fa-check-circle"></i>Tack för din beställning!</h1>
+                <p>En plocksedel har genererats och våra lagermedarbetare hanterar din order. Du kan stänga ned sidan eller fortsätta handla. <br><br>Om det finns täckning på ditt konto debiteras du på spelvaluta när varorna levererats.</p>
+            </div>
+
             <form method="post" action="./tack-for-din-bestallning.php">
                 <h3>Beställ varor i kundvagnen</h3>
                 <label for="mcName">Ditt Minecraftnamn</label>
@@ -62,40 +69,16 @@
         </div>
     </div>
 <div class="wrapper main">
+
     <a class="anchor" id="chark"></a>
     <h1>Chark</h1>
     <p>Saftig biff, fågel eller fina fisken. Här kan du handla allt för din gryta, gratäng och grillat.</p>   
+    
     <div class="grid-container chark">
-    <?php
-    $filename = 'database/chark.csv';
-    $the_big_array = []; 
-    if (($h = fopen("{$filename}", "r")) !== FALSE) 
-    {
-    while (($data = fgetcsv($h, 1000, ";")) !== FALSE) 
-    {
-        $the_big_array[] = $data;		
-    }
-    fclose($h);
-    }
-    for ($i = 2; $i < count($the_big_array); $i++){ ?>
-        <div class="grid-item">
-            <div class="grid-img-container chark">
-                <img class="image-link" src="<?php echo $the_big_array[$i][3]; ?>">
-            </div>
-            <h3 class="title"><?php echo $the_big_array[$i][1]; ?></h3>
-            <div class="grid-text-container">
-                <p class="price"><?php echo $the_big_array[$i][2]; ?></p><p class="unit">kr</p>
-            </div>
-            <div class="number">
-                <span class="minus">-</span>
-                <input class="quantity" type="text" value="0"/>
-                <span class="plus">+</span>
-            </div>
-            <div class="btn_container">
-                <button class="add_to_cart">Lägg i kundvagnen</button>
-            </div>
-        </div>
-    <?php } ?>
+        <?php
+        $filename = 'database/chark.csv';
+        include 'get_products.php';
+        ?>
     </div>
 
     <br><br>
@@ -105,36 +88,10 @@
     <p>Här hittar du alltid färsk frukt att fylla upp fruktkorgen med. Goda äpplen, apelsiner och bananer blir en god fruktsallad eller varför inte en uppfriskande smoothie?</p>
     
     <div class="grid-container frukt">
-    <?php
-    $filename = 'database/frukt.csv';
-    $the_big_array = []; 
-    if (($h = fopen("{$filename}", "r")) !== FALSE) 
-    {
-    while (($data = fgetcsv($h, 1000, ";")) !== FALSE) 
-    {
-        $the_big_array[] = $data;		
-    }
-    fclose($h);
-    }
-    for ($i = 2; $i < count($the_big_array); $i++){ ?>
-        <div class="grid-item">
-            <div class="grid-img-container">
-                <img class="image-link" src="<?php echo $the_big_array[$i][3]; ?>">
-            </div>
-            <h3 class="title"><?php echo $the_big_array[$i][1]; ?></h3>
-            <div class="grid-text-container">
-                <p class="price"><?php echo $the_big_array[$i][2]; ?></p><p class="unit">kr</p>
-            </div>
-            <div class="number">
-                <span class="minus">-</span>
-                <input class="quantity" type="text" value="0"/>
-                <span class="plus">+</span>
-            </div>
-            <div class="btn_container">
-                <button class="add_to_cart">Lägg i kundvagnen</button>
-            </div>
-        </div>
-    <?php } ?>
+        <?php
+        $filename = 'database/frukt.csv';
+        include 'get_products.php';
+        ?>
     </div>
 
     <br><br>
@@ -144,42 +101,29 @@
     <p>Färskt bröd i alla dess former. Vetebullar, limpor, rågbröd, knäckebröd och surdegar. Något sött till kaffet kanske?</p>
     
     <div class="grid-container bageri">
-    <?php
-    $filename = 'database/bageri.csv';
-    $the_big_array = []; 
-    if (($h = fopen("{$filename}", "r")) !== FALSE) 
-    {
-    while (($data = fgetcsv($h, 1000, ";")) !== FALSE) 
-    {
-        $the_big_array[] = $data;		
-    }
-    fclose($h);
-    }
-    for ($i = 2; $i < count($the_big_array); $i++){ ?>
-        <div class="grid-item">
-            <div class="grid-img-container">
-                <img class="image-link" src="<?php echo $the_big_array[$i][3]; ?>">
-            </div>
-            <h3 class="title"><?php echo $the_big_array[$i][1]; ?></h3>
-            <div class="grid-text-container">
-                <p class="price"><?php echo $the_big_array[$i][2]; ?></p><p class="unit">kr</p>
-            </div>
-            <div class="number">
-                <span class="minus">-</span>
-                <input class="quantity" type="text" value="0"/>
-                <span class="plus">+</span>
-            </div>
-            <div class="btn_container">
-                <button class="add_to_cart">Lägg i kundvagnen</button>
-            </div>
-        </div>
-    <?php } ?>
+        <?php
+        $filename = 'database/bageri.csv';
+        include 'get_products.php';
+        ?>
+    </div>
+
+    <br><br>
+    <hr>
+    <a class="anchor" id="redstone"></a>
+    <h1>Rödsten</h1>
+    <p>Lev modernt och effektivt med den senaste rödstenstekniken. Vi har allt du behöver oavsett om du är en hemmafixare eller rent av ett proffs.</p>
+    
+    <div class="grid-container redstone">
+        <?php
+        $filename = 'database/redstone.csv';
+        include 'get_products.php';
+        ?>
     </div>
 
     <div class="pageBottom">
         <div class="bottom-container">
             <img class="sitelogo" src="./img/ica.jpg">
-            <p><strong>Information</strong><br><a href="terms">Köpvillkor</a><br><a href="about">Så går det till</a></p>
+            <p><strong>Information</strong><br><a href="#">Köpvillkor</a><br><a href="#">Så går det till</a></p>
             <p><strong>ICA Centrallager</strong><br>Torsvik<br>Logpoint South Sweden</p>
             <img class="siteLogo" src="./img/nordpost.png">
         </div>

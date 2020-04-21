@@ -1,5 +1,6 @@
 var order_list = [];
 var list_number = 0;
+var items_in_cart = 0;
 //Copyright Gustav Persson 2020
 $(document).ready(function() {
     var quantity = 0;
@@ -29,7 +30,14 @@ $(document).ready(function() {
         $(".quantity").change(function(){
             minusColor($(this));
         });
+        $(".add_to_cart").one("click", function(){
+            $(".cart-footer form").css(
+                "display", "initial"
+            )
+        });
         $(".add_to_cart").click(function(){
+            items_in_cart = parseInt(items_in_cart) + 1;
+
             if ($(this).parent().parent().parent().hasClass("chark")){
                 section = "chark";
             }
@@ -39,19 +47,16 @@ $(document).ready(function() {
             if ($(this).parent().parent().parent().hasClass("bageri")){
                 section = "bageri";
             }
+            if ($(this).parent().parent().parent().hasClass("redstone")){
+                section = "redstone";
+            }
             AddToCart(
                 $(this).parent().parent().index()+1, 
                 $(this).parent().parent().find(".quantity").val(), 
                 section,
                 order_list, 
-                list_number);
-
-            $(".add_to_cart").one("click", function(){
-                $(".cart-footer form").css(
-                    "display", "initial"
-                )
-            });
-
+                list_number,
+                items_in_cart);
         });
         $(".view-cart").click(function(){
             openCartWindow();
@@ -86,6 +91,19 @@ $(document).ready(function() {
             data: $('.cart-footer form').serialize() +  '&shopping_list=' + order_list,
             success: function () {
               alert('form was submitted');
+
+              var old_items = $(".cart-product").parent();
+              old_items.each(function(){
+                this.remove();
+              });
+              $(".cart-footer form").toggle();
+              $(".purchase-confirmation").fadeToggle(100);
+
+              setTimeout(() => {
+                $(window).click(function(){
+                    location.reload();
+                }); 
+              }, 3000);
             }
             })
         });
@@ -107,7 +125,7 @@ function minusColor(item_quantity){
         )
     }
 };
-function AddToCart(ID, chosen_quantity, section, order_list, list_number){
+function AddToCart(ID, chosen_quantity, section, order_list, list_number, items_in_cart){
     $.ajax({
         url: './database/' + section + '.csv',
         dataType: "text"
@@ -155,7 +173,7 @@ function AddToCart(ID, chosen_quantity, section, order_list, list_number){
                     <p class="product-price">${price}</p><p class="price-unit">kr</p>
                 </div>
                 <div class="remove-product">
-                    <a class="delete-product"><i class="fa fa-trash tooltip"><span class="tooltiptext">Ta bort vara</span></i></a>
+                    <a id="${items_in_cart}" class="delete-product"><i class="fa fa-trash tooltip"><span class="tooltiptext">Ta bort vara</span></i></a>
                 </div>
             </div>`
             cartRow.innerHTML = cartRowContents;
@@ -174,7 +192,12 @@ function AddToCart(ID, chosen_quantity, section, order_list, list_number){
             UpdateCartTotal();
             DecreaseNumber();
 
-            console.log($(this).index($(this)));
+            var cart_ID = $(this).attr("id");
+            cart_ID = parseInt(cart_ID);
+            console.log("cartd-id", cart_ID);
+            order_list.splice(cart_ID-1, 1);
+
+            console.log(order_list);
         });
     });
 }
