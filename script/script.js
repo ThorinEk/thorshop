@@ -98,7 +98,7 @@ $(document).ready(function() {
                 this.remove();
               });
               $(".cart-footer form").toggle();
-              $(".purchase-confirmation").fadeToggle(100);
+              $(".purchase-confirmation").fadeToggle(200);
 
               setTimeout(() => {
                 $(window).click(function(){

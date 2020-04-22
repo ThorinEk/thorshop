@@ -123,7 +123,7 @@
     <div class="pageBottom">
         <div class="bottom-container">
             <img class="sitelogo" src="./img/ica.jpg">
-            <p><strong>Information</strong><br><a href="#">Köpvillkor</a><br><a href="#">Så går det till</a></p>
+            <p><strong>Information</strong><br><span class="tooltip" style="text-decoration:underline;">Köpvillkor<span class="tooltiptext">På denna webbplats handlar du med spelvaluta. Pengarna dras från ditt konto vid leverans om det finns tillräckligt på kontot.</span></span><br><span class="tooltip" style="text-decoration:underline;">Så går det till<span class="tooltiptext">När du genomfört en beställning genereras en plockorder för varorna. Varorna packas på ICA:s Centrallager på Torsvik och levereras med Nordpost till ett ombud i din stad.</span></span></p>
             <p><strong>ICA Centrallager</strong><br>Torsvik<br>Logpoint South Sweden</p>
             <img class="siteLogo" src="./img/nordpost.png">
         </div>
