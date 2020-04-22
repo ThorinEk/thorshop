@@ -34,3 +34,13 @@
         margin-top:200px;
     }
   }
+  @media only screen and (max-width: 410px){
+      .second{
+          top:100px;
+      }
+  }
+  @media only screen and (max-width: 338px){
+    .second{
+        top:150px;
+    }
+}
