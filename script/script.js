@@ -93,8 +93,6 @@ $(document).ready(function() {
             url: './tack-for-din-bestallning.php',
             data: $('.cart-footer form').serialize() +  '&shopping_list=' + order_list,
             success: function () {
-              alert('form was submitted');
-
               var old_items = $(".cart-product").parent();
               old_items.each(function(){
                 this.remove();
