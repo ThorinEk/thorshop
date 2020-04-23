@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="sv">
-<title>Thorshop</title>
+<title>Nordatlas | Handla online </title>
 <head>
   <meta charset="UTF-8">
   <meta name="description" content="Thorshop - prisvärda råvaror med hög kvalitet">
-  <meta name="keywords" content="Nordatlas, svensk minecraft, test">
-  <meta name="author" content="Thorshop">
+  <meta name="keywords" content="Nordatlas, svensk minecraft, e-handel, nordatlas handla, butik">
+  <meta name="author" content="ThorinEk">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!--Reloader - Ta bort innan publicering-->
   <!--<meta http-equiv="refresh" content="10">-->
