@@ -24,6 +24,15 @@ $stad = $_POST["cityName"];
 if ($meddelande == "standard"){
     $meddelande = "Paket finns att hämta på ombudet i " . $stad . ". Paketet kvitteras ut av borgmästaren. Mvh, Nordatlas Minecraftserver";
 }
+if ($meddelande == "LDH_onTheWay"){
+  $meddelande = "Paketet är på väg med LDH Express. Levereras till din tomt i " . $stad;
+}
+if ($meddelande == "LDH_delivered"){
+  $meddelande = "Paket från LDH Express levererat. Finns på din tomt i " . $stad;
+}
+if ($meddelande == "LDH_trackingCode"){
+  $meddelande = "Paket är på väg med LDH Express. Spåra på vår hemsida. Kolli ID: " . $stad;
+}
 
 $telefonNummer = substr($telefonNummer,1);
 $telefonNummer = $landskod . $telefonNummer;
