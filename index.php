@@ -13,7 +13,7 @@
   <link rel="icon" type="image/png" href="./img/favicon.png">
   <link rel="stylesheet" type="text/css" href='style/style.css'>
   <link rel="stylesheet" type="text/css" href='style/mobile.css'>
-  <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900italic,900' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900italic,900' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
@@ -29,6 +29,8 @@
                 <li><a href="#frukt">Frukt</a></li>
                 <li><a href="#bageri">Bageri</a></li>
                 <li><a href="#redstone">Rödsten</a></li>
+                <li><a href="#verktyg">Verktyg</a></li>
+                <li><a href="#rustning">Rustning</a></li>
             </ul>
         </div>
     </div>
@@ -126,6 +128,32 @@
     <div class="grid-container redstone">
         <?php
         $filename = 'database/redstone.csv';
+        include 'get_products.php';
+        ?>
+    </div>
+
+    <br><br>
+    <hr>
+    <a class="anchor" id="verktyg"></a>
+    <h1>Verktyg</h1>
+    <p>Här hittar du bland annat vapen, fiskespö och annat som är bra att ha hemma i förrådet.</p>
+    
+    <div class="grid-container verktyg">
+        <?php
+        $filename = 'database/verktyg.csv';
+        include 'get_products.php';
+        ?>
+    </div>
+
+    <br><br>
+    <hr>
+    <a class="anchor" id="rustning"></a>
+    <h1>Rustning</h1>
+    <p>Vi har skyddsutrustningen för dina äventyr. Lev trendigt med en stilren diamantrustning från vårt sortiment.</p>
+    
+    <div class="grid-container rustning">
+        <?php
+        $filename = 'database/rustning.csv';
         include 'get_products.php';
         ?>
     </div>
