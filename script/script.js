@@ -66,6 +66,18 @@ $(document).ready(function() {
             $(this).find("i").toggleClass("fa-times");
             $(this).find("i").toggleClass("fa-shopping-cart");
         });
+        $("#freight").change(function(){
+            if ($("#freight").val() == "LDH"){
+                $("#nummer").css(
+                    "display", "initial"
+                )
+            }
+            else{
+                $("#nummer").css(
+                    "display", "none"
+                )
+            }
+        });
         $(".cart-footer form").submit(function(event) {
             event.preventDefault();
 
