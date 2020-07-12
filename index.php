@@ -31,6 +31,7 @@
                 <li><a href="#redstone">Rödsten</a></li>
                 <li><a href="#verktyg">Verktyg</a></li>
                 <li><a href="#rustning">Rustning</a></li>
+                <li><a href="#bygg">Bygg</a></li>
             </ul>
         </div>
     </div>
@@ -154,6 +155,19 @@
     <div class="grid-container rustning">
         <?php
         $filename = 'database/rustning.csv';
+        include 'get_products.php';
+        ?>
+    </div>
+
+    <br><br>
+    <hr>
+    <a class="anchor" id="bygg"></a>
+    <h1>Bygg</h1>
+    <p>Byggmaterial av det rätta virket. Bland vårt breda sortiment kan du välja det virke som ger ditt hus en unik prägel och karaktär.</p>
+    
+    <div class="grid-container bygg">
+        <?php
+        $filename = 'database/bygg.csv';
         include 'get_products.php';
         ?>
     </div>

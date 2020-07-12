@@ -238,7 +238,7 @@ button.view-cart:hover{
 }
 .cart-window{
     position:fixed;
-    top:200px;
+    top:205px;
     right:12.5%;
     background-color:white;
     width:25%;
@@ -246,7 +246,8 @@ button.view-cart:hover{
     display:none;
     border:1px solid #EDEDED;
     overflow-y:scroll;
-    padding-right:15px
+    padding-right:15px;
+    z-index:10;
 }
 .cart-summary{
     border-bottom:1px solid #EDEDED;

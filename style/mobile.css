@@ -25,6 +25,14 @@
     }
 }
 @media only screen and (max-width: 700px){
+    .second{
+        top:100px;
+    }
+}
+@media only screen and (max-width: 635px){
+    .second{
+        top:150px;
+    }
 }
 @media only screen and (max-width: 500px){
     .grid-container{
@@ -35,9 +43,6 @@
     }
   }
   @media only screen and (max-width: 410px){
-      .second{
-          top:100px;
-      }
   }
   @media only screen and (max-width: 338px){
     .second{

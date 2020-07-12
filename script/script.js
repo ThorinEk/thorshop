@@ -57,6 +57,9 @@ $(document).ready(function() {
             if ($(this).parent().parent().parent().hasClass("rustning")){
                 section = "rustning";
             }
+            if ($(this).parent().parent().parent().hasClass("bygg")){
+                section = "bygg";
+            }
             AddToCart(
                 $(this).parent().parent().index()+1, 
                 $(this).parent().parent().find(".quantity").val(), 
