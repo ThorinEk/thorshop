@@ -22,7 +22,7 @@ $meddelande = $_POST["meddelande"];
 $stad = $_POST["cityName"];
 
 if ($meddelande == "standard"){
-    $meddelande = "Paket finns att hämta på ombudet i " . $stad . ". Paketet kvitteras ut av borgmästaren. Mvh, Nordatlas Minecraftserver";
+    $txt = "Paket finns att hämta på ombudet i " . $stad;
 }
 
 $telefonNummer = substr($telefonNummer,1);
@@ -32,7 +32,7 @@ $subject = "My subject";
 $headers = "From: webmaster@example.com" . "\r\n" .
 "CC: somebodyelse@example.com";
 
-mail($to,$subject,$meddelande,$headers);
+mail($to,$subject,$txt,$headers);
 ?>
 <div class="container">
 <h1 class="display-1">Grattis</h1>
@@ -42,7 +42,7 @@ mail($to,$subject,$meddelande,$headers);
 <br>
 <?php
     echo "<p>Mejlet skickas till: " . $to . "</p>";
-    echo "<p>Texten blev: " . $meddelande . "</p>";
+    echo "<p>Texten blev: " . $txt . "</p>";
 ?>
 
 </div>
