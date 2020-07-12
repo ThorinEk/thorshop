@@ -51,6 +51,12 @@ $(document).ready(function() {
             if ($(this).parent().parent().parent().hasClass("redstone")){
                 section = "redstone";
             }
+            if ($(this).parent().parent().parent().hasClass("verktyg")){
+                section = "verktyg";
+            }
+            if ($(this).parent().parent().parent().hasClass("rustning")){
+                section = "rustning";
+            }
             AddToCart(
                 $(this).parent().parent().index()+1, 
                 $(this).parent().parent().find(".quantity").val(), 
@@ -68,11 +74,13 @@ $(document).ready(function() {
         });
         $("#freight").change(function(){
             if ($("#freight").val() == "LDH"){
+                $("#nummer").prop('required',true);
                 $("#nummer").css(
                     "display", "initial"
                 )
             }
             else{
+                $("#nummer").prop('required',false);
                 $("#nummer").css(
                     "display", "none"
                 )

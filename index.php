@@ -3,7 +3,7 @@
 <title>Nordatlas | Handla online </title>
 <head>
   <meta charset="UTF-8">
-  <meta name="description" content="Thorshop - prisvärda råvaror med hög kvalitet">
+  <meta name="description" content="ICA Ehandel - prisvärda råvaror med hög kvalitet">
   <meta name="keywords" content="Nordatlas, svensk minecraft, e-handel, nordatlas handla, butik">
   <meta name="author" content="ThorinEk">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -74,7 +74,7 @@
                     <option value="LDH">LDH Express</option>
                 </select>
                 <br>
-                <input type="number" style="display:none;" class="form-control" placeholder="Ditt telefonnummer" id="nummer" name="telefonnummer" required>
+                <input type="number" style="display:none;" class="form-control" placeholder="Ditt telefonnummer" id="nummer" name="telefonnummer">
                 <br>
                 <button type="submit" class="send-order">Bekräfta köp</button>
             </form>

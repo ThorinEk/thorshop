@@ -61,7 +61,7 @@
         }
         $name = $_POST["mcName"];
         $city = $_POST["city"];
-        $to = "aditro@nordatlas.se";
+        $to = "nordpost@nordatlas.se";
         $subject = 'Ny order från ' . $name . ' med kollinummer: ' . $kolli_ID;
         $txt = '
         <html>
