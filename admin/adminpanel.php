@@ -20,6 +20,9 @@
         <label for="meddelande">Välj meddelande</label>
                 <select class="form-control" id="meddelande" name="meddelande" required>
                     <option value="standard">Paket på ombud</option>
+                    <option value="LDH_onTheWay">LDH Express på väg</option>
+                    <option value="LDH_delivered">LDH Express levererat</option>
+                    <option value="LDH_trackingCode">LDH Express spåra på hemsida</option>
                 </select>
         </div>
         <div class="form-group">    

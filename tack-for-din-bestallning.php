@@ -35,6 +35,13 @@
     if (isset($_POST)) {
         $shopping_list = $_POST["shopping_list"];
         $sum = 0;
+        
+        $fraktbolag = $_POST["fraktalternativ"];
+        $telefonnummer = "Ej angivet";
+        $kolli_ID = rand(1000,9999);
+        if ($fraktbolag == "LDH"){
+            $telefonnummer = $_POST["telefonnummer"];
+        }
         //$shopping_list = "0,Torsk,36,3,https://i.imgur.com/TVwd2Qi.png, 1,Söta bär,76,4,https://i.imgur.com/lz3mEcb.png, 2,Morot,96,4,https://i.imgur.com/UA4kV37.png,";
         $item_rows = explode(", ", $shopping_list);
         for ($i = 0; $i < count($item_rows); $i++){
@@ -55,13 +62,16 @@
         $name = $_POST["mcName"];
         $city = $_POST["city"];
         $to = "aditro@nordatlas.se";
-        $subject = 'Ny order från ' . $name;
+        $subject = 'Ny order från ' . $name . ' med kollinummer: ' . $kolli_ID;
         $txt = '
         <html>
         <body>
         <h1>Plocksedel ICA</h1>
         <h3>Beställare: ' . $name . '</h3>
         <h3>Stad: ' . $city . '</h3>
+        <hr>
+        <h3>Fraktbolag: ' . $fraktbolag . '</h3>
+        <h3>Telefonnummer: ' . $telefonnummer . '</h3>
         <h3>Att debitera kunden: ' . $sum . ' SEK</h3> 
         <table style="border-collapse:collapse; font-family:Verdana, Arial; font-size:1.3em;">
         <thead style="border:1px solid black;"><th style="border:1px solid black; padding:20px;">ID</th><th style="border:1px solid black; padding:20px;">Namn</th><th style="border:1px solid black; padding:20px;">Pris</th><th style="border:1px solid black; padding:20px;">Kvantitet</th><th style="border:1px solid black; padding:20px;">Bildlänk</th></thead>
@@ -72,7 +82,8 @@
         </html>
         ';
         $headers = "From: order@nordatlas.eu" . "\r\n";
-        $headers = "MIME-Version: 1.0" . "\r\n";
+        $headers .= 'Cc: nordbox@nordatlas.se' . "\r\n";
+        $headers .= "MIME-Version: 1.0" . "\r\n";
         $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 
         mail($to,$subject,$txt,$headers);

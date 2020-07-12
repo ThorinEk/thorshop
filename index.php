@@ -66,6 +66,16 @@
                 <label for="city">Din stad på Nordatlas</label>
                 <br>
                 <input type="text" class="form-control" placeholder="Ange staden du bor i" id="city" name="city" required>
+                <br>
+                <label>Fraktalternativ</label>
+                <br>
+                <select id="freight" name="fraktalternativ">
+                    <option selected="selected" value="Nordpost">NordPost</option>
+                    <option value="LDH">LDH Express</option>
+                </select>
+                <br>
+                <input type="number" style="display:none;" class="form-control" placeholder="Ditt telefonnummer" id="nummer" name="telefonnummer" required>
+                <br>
                 <button type="submit" class="send-order">Bekräfta köp</button>
             </form>
         </div>
